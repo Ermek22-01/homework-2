@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+ import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [squareColor1, setSquareColor1] = useState('red');
+  const [squareColor2, setSquareColor2] = useState('blue');
+
+  const swapColors = () => {
+    setSquareColor1(squareColor2);
+    setSquareColor2(squareColor1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <div
+            style={{ width: '100px', height: '100px', backgroundColor: squareColor1 }}
+            onClick={swapColors}
+        ></div>
+        <div
+            style={{ width: '100px', height: '100px', backgroundColor: squareColor2 }}
+            onClick={swapColors}
+        ></div>
+      </div>
   );
-}
+};
 
 export default App;
